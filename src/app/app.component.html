@@ -1,0 +1,53 @@
+<div class="main-container">
+	<header class="header-2">
+		<div class="branding">
+			<a class="nav-link">
+				<clr-icon shape="home" size="24"></clr-icon>
+				<span class="title">Project Clarity</span>
+			</a>
+		</div>
+		<div class="header-nav">
+			<a class="active nav-link nav-text">Home</a>
+		</div>
+	</header>
+	<div class="content-container">
+		<div class="content-area">
+			<div class="clr-row">
+        <div class="clr-col-4 offset-xs-1">
+            <table class="table" clrDroppable (clrDrop)="onDropBack($event)">
+                <thead>
+                <tr>
+                    <th>Files:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngIf="files.length===0">
+                    <td>Nothing to drag here...</td>
+                </tr>
+                <tr *ngFor="let file of files">
+                    <td><span class="label" [clrDraggable]="file">{{file.name}}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clr-col-4 offset-xs-1">
+            <table class="table" clrDroppable (clrDrop)="onDropToUpload($event)">
+                <thead>
+                <tr>
+                    <th>Drop here to upload:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngIf="droppedFiles.length===0">
+                    <td>Nothing to upload here...</td>
+                </tr>
+                <tr *ngFor="let file of droppedFiles">
+                    <td><span class="label" [clrDraggable]="file">{{file.name}}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+		</div>
+	</div>
+</div>
